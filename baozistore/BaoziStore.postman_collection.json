@@ -1,0 +1,281 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Baozi Store - API REST (UNINTER)",
+    "description": "Coleção Postman para testes dos endpoints CRUD da API Baozi Store desenvolvida em Spring Boot.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Clientes",
+      "item": [
+        {
+          "name": "POST - Criar Cliente (Nome + RU)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"RaulRenshaw5033428\",\n  \"clienteDesde\": \"2026-10-12\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["clientes"]
+            },
+            "description": "Cadastra um novo cliente no sistema. Substitua pelo seu Nome e RU oficial se desejar."
+          }
+        },
+        {
+          "name": "GET - Listar Todos os Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["clientes"]
+            },
+            "description": "Retorna todos os clientes cadastrados."
+          }
+        },
+        {
+          "name": "GET - Buscar Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clientes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["clientes", "1"]
+            },
+            "description": "Busca um cliente específico pelo ID."
+          }
+        },
+        {
+          "name": "PUT - Atualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Raul Vitor Renshaw Atualizado\",\n  \"clienteDesde\": \"2026-10-12\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clientes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["clientes", "1"]
+            },
+            "description": "Atualiza os dados de um cliente existente."
+          }
+        },
+        {
+          "name": "DELETE - Apagar Cliente por ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/clientes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["clientes", "1"]
+            },
+            "description": "Remove um cliente pelo ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Produtos",
+      "item": [
+        {
+          "name": "POST - Criar Produto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Baozi Tradicional de Carne Suína\",\n  \"preco\": 12.50,\n  \"estoque\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/produtos",
+              "host": ["{{baseUrl}}"],
+              "path": ["produtos"]
+            },
+            "description": "Cadastra o produto pãozinho chinês."
+          }
+        },
+        {
+          "name": "GET - Listar Todos os Produtos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/produtos",
+              "host": ["{{baseUrl}}"],
+              "path": ["produtos"]
+            },
+            "description": "Lista todos os produtos da loja."
+          }
+        },
+        {
+          "name": "GET - Buscar Produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/produtos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["produtos", "1"]
+            },
+            "description": "Busca um produto específico pelo ID."
+          }
+        },
+        {
+          "name": "PUT - Atualizar Produto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Baozi Especial Artesanal\",\n  \"preco\": 14.00,\n  \"estoque\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/produtos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["produtos", "1"]
+            },
+            "description": "Atualiza os dados de um produto."
+          }
+        },
+        {
+          "name": "DELETE - Apagar Produto por ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/produtos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["produtos", "1"]
+            },
+            "description": "Remove um produto pelo ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Pedidos",
+      "item": [
+        {
+          "name": "POST - Criar Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 3\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pedidos",
+              "host": ["{{baseUrl}}"],
+              "path": ["pedidos"]
+            },
+            "description": "Registra a compra de 3 unidades do produto pelo cliente."
+          }
+        },
+        {
+          "name": "GET - Listar Todos os Pedidos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pedidos",
+              "host": ["{{baseUrl}}"],
+              "path": ["pedidos"]
+            },
+            "description": "Lista todos os pedidos registrados."
+          }
+        },
+        {
+          "name": "GET - Buscar Pedido por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pedidos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["pedidos", "1"]
+            },
+            "description": "Busca um pedido específico por ID."
+          }
+        },
+        {
+          "name": "PUT - Atualizar Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pedidos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["pedidos", "1"]
+            },
+            "description": "Atualiza a quantidade ou dados do pedido."
+          }
+        },
+        {
+          "name": "DELETE - Apagar Pedido por ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pedidos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["pedidos", "1"]
+            },
+            "description": "Remove um pedido pelo ID."
+          }
+        }
+      ]
+    }
+  ]
+}
